@@ -4,25 +4,23 @@
 #         self.val = x
 #         self.next = None
 
+
+def getNumber(l):
+    num = 0
+    pos = 1
+    while l != None:
+        num += l.val * pos
+        pos *= 10
+        l = l.next
+    #endwhile
+    return num
+
 class Solution:
   
             
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        num1 = num2 = 0
-        pos = 1
-        while l1 != None:
-            num1 += l1.val * pos
-            pos *= 10
-            l1 = l1.next
-        #endwhile
-        pos = 1
-        while l2 != None:
-            num2 += l2.val * pos
-            pos *= 10
-            l2 = l2.next
-        #endwhile
-        num = num1 + num2
-        head = None
+        num = getNumber(l1) + getNumber(l2)
+        head = current = None
         while True:
             digit = num % 10
             num //= 10
