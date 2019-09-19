@@ -22,7 +22,7 @@ class Solution:
             l2 = l2.next
         #endwhile
         num = num1 + num2
-        head = current = None
+        head = None
         while True:
             digit = num % 10
             num //= 10
