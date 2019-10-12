@@ -1,14 +1,12 @@
-from collections import defaultdict
+import random
+random.seed()
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        mp = defaultdict(int)
-        for num in nums:
-            mp[num] += 1
-        #endfor
         n = len(nums)
-        for key, val in mp.items():
-            if 2*val > n:
-                return key
+        while True:
+            candidate = random.choice(nums)
+            if sum(1 for elem in nums if elem == candidate) * 2 > n:
+                return candidate
             #endif
-        #endfor
+        #endwhile
