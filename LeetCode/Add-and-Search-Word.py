@@ -14,7 +14,7 @@ class WordDictionary:
         node = self.trie
         for ch in word:
             node = node.setdefault(ch, {})
-        node['end'] = {}
+        node.setdefault('end', {})
         
 
     def search(self, word: str) -> bool:
