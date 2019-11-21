@@ -19,6 +19,7 @@ public:
             for(int i=0; i<size; i++){
                 temp[i] = container[i];
             }
+            delete[] container;
             container = temp;
         }
     }
@@ -34,7 +35,7 @@ public:
 
 int main(int argc, char const *argv[]) {
     Vector<int>v;
-    for(int i=1; i<=10; i++) {
+    for(int i=1; i<=100; i++) {
         v.push_back((i*i));
     }
     for(int i=0;i<v.length(); i++) {
