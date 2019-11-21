@@ -2,9 +2,10 @@
 
 template <typename T>
 class Vector {
-    public:
+    private:
     T *arr;
     int size;
+    public:
     Vector() {
         size = 0;
         arr = (T *) malloc(1 * sizeof(T));
