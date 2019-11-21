@@ -2,10 +2,10 @@
 
 template <typename T>
 class Vector {
-    private:
+private:
     T *arr;
     int size;
-    public:
+public:
     Vector() {
         size = 0;
         arr = (T *) malloc(1 * sizeof(T));
@@ -17,7 +17,7 @@ class Vector {
             arr = (int *) realloc(arr,(size<<1));
         }
     }
-    T at(int idx) {
+    T operator [](int idx) {
         return arr[idx];
     }
     int length() {
@@ -31,5 +31,5 @@ int main(int argc, char const *argv[]) {
     Vector<int>v[10];
     v[0].push_back(5);
     v[1].push_back(15);
-    std::cout<<v[1].at(0)<<std::endl;
+    std::cout<<v[1][0]<<std::endl;
 }
