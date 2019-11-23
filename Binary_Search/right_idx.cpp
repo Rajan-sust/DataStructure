@@ -1,11 +1,7 @@
-/*
- The first idx where >= x
- */
-
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> v = {1,1,2,3,3,4,4,5,5,5,7};
+vector<int> v = {1,1,2,3,3,4,4,5,5,5,5,5,5,5,5,5,7};
 //               0,1,2,3,4,5,6,7,8,9,10
 
 
