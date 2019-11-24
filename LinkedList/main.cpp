@@ -1,39 +1,42 @@
 #include <iostream>
-using namespace std;
 
 
+template<typename T>
 struct node {
-	int data;
+	T data;
 	node *next;
-	node(int data): data(data), next(nullptr){}
+	node(T data): data(data), next(nullptr){}
 };
 
+template<typename T>
 class list {
 private:
-	node *head, *tail;
+	node<T> *head, *tail;
 public:
 	list() {
-		head = nullptr;
-		tail = nullptr;
+		head = tail = nullptr;
 	}
 	void push_back(int data) {
-		node *temp = new node(data);
+		node<T> *new_node = new node<T>(data);
 		if(head == nullptr) {
-			head = temp;
-			tail = temp;
+			head = tail = new_node;
 		}else {
-			tail->next = temp;
-			tail = temp;
+			tail->next = new_node;
+			tail = new_node;
 		}
-
+	}
+	T back() {
+		return tail->data;
 	}
 
 };
 
 int main() {
-	list l;
+	list<int> l;
 	l.push_back(5);
 	l.push_back(10);
+	l.push_back(15);
+	std::cout<<l.back()<<std::endl;
 
 	return 0;
 }
