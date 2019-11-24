@@ -34,6 +34,7 @@ public:
 		/* If queue is not empty and head and tail point same
 		   element that means only one element remain */
 		if(head == tail) {
+			delete head;
 			head = tail = nullptr;
 		} else {
 			/*After changing pointer deleting unreferenced object*/
