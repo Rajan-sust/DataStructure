@@ -1,10 +1,4 @@
 #include <iostream>
-#include <set>
-#include <utility>
-#include <vector>
-
-using namespace std;
-
 
 template<typename T>
 struct node{
@@ -17,7 +11,30 @@ template<typename T>
 class tree{
 private:
 	node<T> *root;
-	vector< pair<char,int> > path;
+		
+	void preorder(node<T> *current){
+		if(current == nullptr)
+			return;
+		std::cout<<current->data<<'\n';
+		preorder(current->left);
+		preorder(current->right);
+	}
+	void inorder(node<T> *current){
+		if(current == nullptr)
+			return;
+		inorder(current->left);
+		std::cout<<current->data<<'\n';
+		inorder(current->right);
+	}
+	void postorder(node<T> *current){
+		if(current == nullptr)
+			return;
+		postorder(current->left);
+		postorder(current->right);
+		std::cout<<current->data<<std::endl;
+	}
+	
+
 public:
 	tree(): root(nullptr){}
 	void insert(T data){
@@ -45,38 +62,25 @@ public:
 			}
 		}	
 	}
-	void post_order(node<T> *current, char ch, int level){
-		if(current == nullptr)
-			return;
-		path.emplace_back(ch,level);
-		post_order(current->left,'l',level+1);
-		post_order(current->right,'r',level+1);
-
+	void preorder(){
+		preorder(root);
 	}
-	vector< pair<char,int> > traverse(){
-		path.clear();
-		post_order(root, 'o', 0);
-		return path;
+	void inorder(){
+		inorder(root);
 	}
-
-
+	void postorder(){
+		postorder(root);
+	}
 };
 
 int main(){
 
-	int n,nodes;
-	cin>>n>>nodes;
-	set< vector< pair<char,int> > > s;
-	while(n--){
-		tree<int> t;
-		for(int i = 0; i < nodes; i++){
-			int num;
-			cin>>num;
-			t.insert(num);
-		}
-		s.insert(t.traverse());
+	tree<int> t;
+	int nodes[] = {50,30,20,40,70,60,80};
+	for(int i = 0; i < 7; i++){
+		t.insert(nodes[i]);
 	}
-	cout<<s.size()<<'\n';
+	t.postorder();
 
 	return 0;
 }
