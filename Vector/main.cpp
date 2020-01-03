@@ -11,7 +11,7 @@ private:
     int idx;
     T *container;
 public:
-    vector() : idx(0) , container(new int[1]) {}
+    vector() : idx(0) , container(new T[1]) {}
     /*
     Destructor: https://docs.microsoft.com/en-us/cpp/cpp/destructors-cpp?view=vs-2019
     If anyone use new operator for object creating, then it requires explicit delete
