@@ -80,6 +80,11 @@ public:
 
 	}
 
+	void call_dfs() {
+		color[0] = 0;
+		dfs(0);
+	}
+
 	void show_output() {
 		if(ok){
 			std::cout<<"BICOLORABLE.\n";
@@ -101,7 +106,7 @@ int main(int argc, char const *argv[]) {
 		std::cin>>e;
 		bi_color graph(n,e);
 		graph.build();
-		graph.dfs(0);
+		graph.call_dfs();
 		graph.show_output();
 
 	}
